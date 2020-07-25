@@ -1,0 +1,172 @@
+.health-records-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 700px;
+    margin-top: 20px;
+    min-width: 300px;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 700px;
+  }
+  
+  .element-row {
+    position: relative;
+  }
+  
+  .element-row:not(.expanded) {
+    cursor: pointer;
+  }
+  
+  .element-row:not(.expanded):hover {
+    background: #f5f5f5;
+  }
+  
+  .element-row.expanded {
+    border-bottom-color: transparent;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0 10px 0;
+    align-items: center;
+}
+.details {
+    display: flex;
+}
+.details-icon img {
+    height: 22px;
+}
+.details-icon {
+    background: #007AFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.details-content span:nth-child(2) {
+    font-size: 10px;
+    color: #898989;
+}
+.details-content span:nth-child(1) {
+    font-size: 15px;
+    font-weight: 500;
+}
+.details-content {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    justify-content: center;
+}
+.mat-header-cell {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+}
+mat-header-row {
+    background: #3A74B3;
+}
+span.notation {
+    font-size: 10px;
+    padding-left: 8px;
+    font-weight: 400;
+}
+mat-cell.full-details mat-card {
+    width: 240px;
+}
+mat-cell.full-details {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+.mat-card-avatar img {
+    height: 28px;
+}
+mat-card mat-card-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+mat-card mat-card-header {
+    display: flex;
+    align-items: center;
+}
+
+mat-card mat-card-content {
+    text-align: center;
+    font-size: 25px !important;
+    font-weight: 500;
+    padding: 20px;
+}
+
+mat-card {
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+mat-card:nth-child(1) {
+    background: #FFF6F5 !important;
+}
+mat-card:nth-child(2) {
+    background: #F2F8FF !important;
+}
+
+mat-card:nth-child(3) {
+    background: #FFF7EA !important;
+}
+
+mat-card:nth-child(4) {
+    background: #F6F5FF !important;
+}
+
+
+mat-card:nth-child(1) mat-card-title {
+    color: #FF6243;
+}
+mat-card:nth-child(2) mat-card-title {
+    color: #007AFF;
+}
+mat-card:nth-child(3) mat-card-title {
+    color: #EA9D2D;
+}
+mat-card:nth-child(4) mat-card-title {
+    color: #4A2DEA;
+}
+
+
+mat-card:nth-child(1) mat-card-content {
+    color: #FF6243;
+}
+mat-card:nth-child(2) mat-card-content {
+    color: #007AFF;
+}
+mat-card:nth-child(3) mat-card-content {
+    color: #EA9D2D;
+}
+mat-card:nth-child(4) mat-card-content {
+    color: #4A2DEA;
+}
+
+a.action img {
+    height: 8px;
+    padding-right: 5px;
+}
+a.action {
+    font-size: 10px;
+    font-weight: 600;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    height: 15px;
+    align-items: center;
+}
+
+.danger-zone {
+    background: #FD6666;
+}
+
+.danger-zone mat-cell {
+    color: #ffffff;
+}

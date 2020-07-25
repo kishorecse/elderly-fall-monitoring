@@ -1,0 +1,15 @@
+.popup-css {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img {
+    height: 70px;
+}
+
+p {
+    padding: 20px;
+    text-align: center;
+}

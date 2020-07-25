@@ -1,0 +1,182 @@
+<div class="parent-container">
+  <div class="header">
+    <div class="left-side">
+      <div class="details">
+        <div class="details-icon">
+          <img [src]="appImages.personIcon">
+        </div>
+        <div class="details-content">
+          <span>Details</span>
+          <span class="count"> {{dataSource?.data?.length}} members</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-side">
+      <div class="button">
+        <button mat-mini-fab color="primary">
+          <mat-icon aria-hidden="false">refresh</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="health-records-container">
+    <mat-table #table [dataSource]="dataSource" >
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <!-- age Column -->
+      <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.age}} yrs</mat-cell>
+      </ng-container>
+
+      <!-- Location Column -->
+      <ng-container matColumnDef="location">
+        <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+      </ng-container>
+
+      <!-- HeartBeatRate Column -->
+      <ng-container matColumnDef="heartBeatRate">
+        <mat-header-cell *matHeaderCellDef> HeartBeat Rate </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.heartBeatRate}} <span class="notation">(bpm)</span></mat-cell>
+      </ng-container>
+
+      <!-- PulseRate Column -->
+      <ng-container matColumnDef="pulseRate">
+        <mat-header-cell *matHeaderCellDef> Pulse Rate </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.pulseRate}} </mat-cell>
+      </ng-container>
+
+      <!-- oxygenLevel Column -->
+      <ng-container matColumnDef="oxygenLevel">
+        <mat-header-cell *matHeaderCellDef> Oxygen Level </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.oxygenLevel}}   <span class="notation">(mm Hg)</span></mat-cell>
+      </ng-container>
+
+      <!-- caloriesBurnt Column -->
+      <ng-container matColumnDef="caloriesBurnt">
+        <mat-header-cell *matHeaderCellDef> Calories Burnt </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.caloriesBurnt}}  <span class="notation">(calories)</span></mat-cell>
+      </ng-container>
+
+      <!-- numberOfSteps Column -->
+      <ng-container matColumnDef="numberOfSteps">
+        <mat-header-cell *matHeaderCellDef> Number Of Steps </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.numberOfSteps}}  <span class="notation">(steps)</span></mat-cell>
+      </ng-container>
+
+
+      <!-- Expanded Content Column - The detail row is made up of this one column -->
+      <ng-container matColumnDef="expandedDetail">
+        <mat-cell *matCellDef="let detail" class="full-details"> 
+
+          <!-- The symbol for {{detail.element.name}} is {{detail.element.symbol}} -->
+          <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar>
+                <img [src]="appImages.heartIcon">
+              </div>
+              <mat-card-title>HeartBeat Rate</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                {{detail.element.heartBeatRate}} bpm
+            </mat-card-content>
+            <mat-card-actions>
+              <a class="action">
+                <img [src]="appImages.graphIcon">
+                View Complete Graph
+              </a>
+            </mat-card-actions>
+          </mat-card>
+          
+          <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar>
+                <img [src]="appImages.stepsIcon">
+              </div>
+              <mat-card-title>Number of Steps</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                {{detail.element.numberOfSteps}}
+            </mat-card-content>
+            <mat-card-actions>
+              <a class="action">
+                <img [src]="appImages.mapIcon">
+                View Map
+              </a>
+            </mat-card-actions>
+          </mat-card>
+
+          <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar>
+                <img [src]="appImages.fireIcon">
+              </div>
+              <mat-card-title>Calories Burnt</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                {{detail.element.caloriesBurnt}}
+            </mat-card-content>
+            <mat-card-actions>
+              <a class="action">
+              </a>
+            </mat-card-actions>
+          </mat-card>
+
+          <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar>
+                <img [src]="appImages.mapIcon">
+              </div>
+              <mat-card-title>Location</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                {{detail.element.location}}
+            </mat-card-content>
+            <mat-card-actions>
+              <a class="action">
+                <img [src]="appImages.trackIcon">
+                Track Location
+              </a>
+            </mat-card-actions>
+          </mat-card>
+
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"
+              matRipple 
+              class="element-row" [ngClass]="{ 'danger-zone': row.heartBeatRate < 40 }"
+              [class.expanded]="expandedElement == row"
+              (click)="expandedElement = row"></mat-row>
+              
+      <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
+              [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
+              style="overflow: hidden"> 
+      </mat-row>
+
+     
+
+    </mat-table>
+  </div>
+</div>

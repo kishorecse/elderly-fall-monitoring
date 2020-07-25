@@ -1,0 +1,21 @@
+<mat-drawer-container class="main-container">
+  <mat-drawer mode="side" class="side-navigation" opened>
+      <div class="logo">
+        <img [src]="appImages.logoIcon">
+        <span> Elderly Fall <br> Monitoring  </span>
+      </div>
+      <mat-divider></mat-divider>
+      <mat-list role="list" >
+        <mat-list-item role="listitem" class="menu-list-item" [routerLinkActive]="['active-link']" [routerLink]="menuItem.routerLink"  *ngFor="let menuItem of sideMenu" matRipple>
+          <div class="menu-item">
+            <mat-icon aria-hidden="false">{{menuItem?.menuIcon}}</mat-icon>
+            <span>{{menuItem?.menuName}}</span>
+          </div>
+          </mat-list-item>
+      </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+
+  </mat-drawer-content>
+</mat-drawer-container>
